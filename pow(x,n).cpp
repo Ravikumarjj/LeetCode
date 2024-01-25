@@ -1,17 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution {
-public:
-    vector<vector<int>> subsets(vector<int>& nums) {
-    vector<vector<int>> ans;
-	int n = nums.size();
-	for(int i=0;i<(1<<n);i++){
-		vector<int> s;
-		for(int j=0;j<n;j++){
-              if(i&(1<<j)) s.push_back(nums[j]);
-		}
-		ans.push_back(s);
-	}
-	return ans;
+class Solution{
+	public:
+double solve(double x, long n){
+        if(n==0) return 1;
+        if(n<0) return solve(1/x,-n);
+        if(n%2==0) return solve(x*x,n/2);
+        else return x*solve(x*x,(n-1)/2);
     }
+    double myPow(double x, int n) {
+        return solve(x,(long)n); //converting to long long to ensure the overflow of change of negative to positive n
+    }
+    
 };
