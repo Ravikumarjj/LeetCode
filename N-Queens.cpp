@@ -8,7 +8,7 @@ public:
         return;
       }
       for (int row = 0; row < n; row++) {
-        if (leftrow[row] == 0 && lowerDiagonal[row + col] == 0 && upperDiagonal[n - 1 + col - row] == 0) {
+        if (leftrow[row] == 0 && lowerDiagonal[row + col] == 0 && upperDiagonal[n - 1 + col - row] == 0) {//help to check by traversing the diagonal with the formula for index
           board[row][col] = 'Q';
           leftrow[row] = 1;
           lowerDiagonal[row + col] = 1;
